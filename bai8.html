@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai8</title>
+</head>
+<body>
+<input type="button"onclick="play()" value="Chơi">
+<script>
+    function play() {
+        let min = parseInt(prompt('Nhập giới hạn dưới'));
+        let max = parseInt(prompt('Nhập giới hạn trên'));
+        let number = min + (max - min) * Math.random();
+        number = Math.floor(number);
+        turns = 1;
+        let win = false;
+        while (turns <=3) {
+            let message = 'Lượt '+ turns + 'Nhập số bạn đoán';
+            turns++
+            if (turns !==1) {
+                message = 'Đoán sai \n'+message;
+            }
+            let you = parseInt(prompt(message));
+            if (you ===number) {
+                win = true
+                alert('Bạn đã đoán đúng');
+                break;
+            }
+        }
+        if (!win) {
+            alert('Rất tiếc, bạn đã quá 3 lượt');
+        }
+    }
+</script>
+</body>
+</html>
